@@ -1,0 +1,12 @@
+<?xml version="1.0"?>
+<package >
+  <metadata>
+    <id>$id$</id>
+    <version>$version$</version>
+    <title>Redundant Azure Table Storage Helper</title>
+    <authors>Jonathas Sucupira</authors>
+    <owners>Jonathas Sucupira</owners>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>This will help implement geo redundat table storage.</description>
+  </metadata>
+</package>
