@@ -84,9 +84,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ContextFactory.cs" />
     <Compile Include="MEFBase.cs" />
     <Compile Include="RedundantTableStorage.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ReplicationStrategy.cs" />
     <Compile Include="TransactionLog.cs" />
     <Compile Include="TransactionLogAtsEntity.cs" />
     <Compile Include="TransactionLogExtensions.cs" />

@@ -5,6 +5,7 @@ using AzureUtilities.Mock;
 using AzureUtilities.Tables;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Microsoft.WindowsAzure.Storage.Table;
+using Newtonsoft.Json;
 
 namespace Azure.TableStorage.Redundancy.Test
 {
@@ -145,6 +146,23 @@ namespace Azure.TableStorage.Redundancy.Test
             customerArchiver.ConnectionString = "UseDevelopmentStorage=True";
             customerArchiver.TableName = "TransactionLog";
             Assert.IsTrue(!customerArchiver.FindByPartitionKey<TableEntity>("Customer").Any());
+        }
+
+        [TestMethod]
+        public void test_plan()
+        {
+            var customer = new Customer();
+            TransactionLog log = new TransactionLog()
+            {
+                Action = "UPSERT",
+                Object = JsonConvert.SerializeObject(customer),
+                ObjectId = $"{customer.PartitionKey}|{customer.RowKey}",
+                TableName = "Customer",
+                Type = "Customer"
+            };
+
+            var action = log.Create<Customer>("UseDevelopmentStorage=True");
+            action?.Invoke();
         }
     }
 

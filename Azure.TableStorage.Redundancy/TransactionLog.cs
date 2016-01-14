@@ -18,5 +18,7 @@ namespace Azure.TableStorage.Redundancy
         public string TransactionId { get; set; }
         public string Object { get; set; }
         public string Type { get; set; }
+        public string TableName { get; set; }
+        public string ObjectId { get; set; }
     }
 }

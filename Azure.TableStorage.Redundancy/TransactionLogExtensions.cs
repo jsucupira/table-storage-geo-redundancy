@@ -11,6 +11,8 @@ namespace Azure.TableStorage.Redundancy
                 Action = model.Action,
                 Object = model.Object,
                 PartitionKey = model.Type,
+                ObjectId = model.ObjectId,
+                TableName = model.TableName
             };
         }
 
@@ -23,6 +25,8 @@ namespace Azure.TableStorage.Redundancy
                 Action = model.Action,
                 Object = model.Object,
                 Type = model.PartitionKey,
+                ObjectId = model.ObjectId,
+                TableName = model.TableName
             };
         }
     }

@@ -13,7 +13,7 @@ namespace Azure.TableStorage.Redundancy
     {
         private readonly bool _enableRedundancy;
         private readonly string _serviceBusQueue;
-        private string _objectName;
+        private readonly string _objectName;
 
         [Import]
         private IAzureTableUtility _azureTableUtility;
@@ -89,7 +89,9 @@ namespace Azure.TableStorage.Redundancy
                 {
                     Action = action,
                     Object = JsonConvert.SerializeObject(entity),
-                    Type = _objectName
+                    Type = _objectName,
+                    ObjectId = $"{entity.PartitionKey}|{entity.RowKey}",
+                    TableName = _azureTableUtility.TableName
                 };
                 _serviceBusContext.AddToQueue(_serviceBusQueue, log);
                 _transactionTableUtility.Upset<TransactionLogAtsEntity>(log.Map());
