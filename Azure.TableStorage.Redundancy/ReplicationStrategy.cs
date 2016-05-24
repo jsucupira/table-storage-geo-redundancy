@@ -19,7 +19,7 @@ namespace Azure.TableStorage.Redundancy
             DynamicTableEntity temp = new DynamicTableEntity();
             foreach (KeyValuePair<string, JToken> keyValuePair in jsonMessage)
             {
-                if (keyValuePair.Key.Equals("Timestamp"))
+                if (keyValuePair.Key.Equals("Timestamp") || keyValuePair.Key.Equals("ETag"))
                     continue;
                 
                 if (keyValuePair.Key.Equals("PartitionKey"))
@@ -30,8 +30,6 @@ namespace Azure.TableStorage.Redundancy
                     temp.Properties.Add(keyValuePair.Key, EntityProperty.CreateEntityPropertyFromObject(keyValuePair.Value));
 
             }
-            temp.ETag = null;
-            temp.Timestamp = DateTimeOffset.UtcNow;
 
             string actionType = transactionLogMessage.Action;
             if (actionType.Equals("UPSERT", StringComparison.OrdinalIgnoreCase) || actionType.Equals("INSERT", StringComparison.OrdinalIgnoreCase))
