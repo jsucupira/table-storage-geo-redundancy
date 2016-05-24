@@ -4,13 +4,14 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{6E6B038C-7551-49FA-905D-6B2618DB4920}</ProjectGuid>
+    <ProjectGuid>{7EFEFD23-C2A9-484F-915A-672B4D7E9158}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Azure.TableStorage.Redundancy</RootNamespace>
-    <AssemblyName>Azure.TableStorage.Redundancy</AssemblyName>
+    <RootNamespace>Azure.TableStorage.Utilities</RootNamespace>
+    <AssemblyName>Azure.TableStorage.Utilities</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -64,7 +65,6 @@
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.Composition" />
-    <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.ServiceModel" />
@@ -80,25 +80,17 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ContextFactory.cs" />
-    <Compile Include="MEFBase.cs" />
-    <Compile Include="RedundantTableStorage.cs" />
+    <Compile Include="AzureTableStorageUtilitiesAssembly.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="ReplicationStrategy.cs" />
-    <Compile Include="TransactionLog.cs" />
-    <Compile Include="TransactionLogAtsEntity.cs" />
-    <Compile Include="TransactionLogExtensions.cs" />
+    <Compile Include="Service Bus\IServiceBusContext.cs" />
+    <Compile Include="Service Bus\ServiceBusContext.cs" />
+    <Compile Include="Tables\AzureTableUtility.cs" />
+    <Compile Include="Tables\IAzureTableUtility.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />
-    <None Include="Azure.TableStorage.Redundancy.nuspec" />
+    <None Include="Azure.TableStorage.Utilities.nuspec" />
     <None Include="packages.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\Azure.TableStorage.Utilities\Azure.TableStorage.Utilities.csproj">
-      <Project>{7efefd23-c2a9-484f-915a-672b4d7e9158}</Project>
-      <Name>Azure.TableStorage.Utilities</Name>
-    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

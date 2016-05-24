@@ -1,8 +1,8 @@
 ﻿using System;
 using System.ComponentModel.Composition.Hosting;
 using System.Linq;
-using AzureUtilities.Mock;
-using AzureUtilities.Tables;
+using Azure.TableStorage.Utilities.Mock;
+using Azure.TableStorage.Utilities.Tables;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Microsoft.WindowsAzure.Storage.Table;
 using Newtonsoft.Json;
@@ -18,7 +18,7 @@ namespace Azure.TableStorage.Redundancy.Test
         public void Init()
         {
             AggregateCatalog catalog = new AggregateCatalog();
-            catalog.Catalogs.Add(new AssemblyCatalog(typeof(AzureUtilitiesMockAssembly).Assembly));
+            catalog.Catalogs.Add(new AssemblyCatalog(typeof(AzureTableStorageMockAssembly).Assembly));
             MefBase.Container = new CompositionContainer(catalog, true);
         }
 
@@ -161,7 +161,7 @@ namespace Azure.TableStorage.Redundancy.Test
                 Type = "Customer"
             };
 
-            var action = log.Create<Customer>("UseDevelopmentStorage=True");
+            var action = log.Create("UseDevelopmentStorage=True");
             action?.Invoke();
         }
     }

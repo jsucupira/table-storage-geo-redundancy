@@ -194,9 +194,3 @@ FakesAssemblies/
 
 # Visual Studio 6 workspace options file
 *.opt
-
-#don't ignore
-!packages/AzureUtilities*
-!packages/AzureUtilities.Mock*
-!packages/AzureUtilities.Mock*/*.nupkg
-!packages/AzureUtilities*/*.nupkg

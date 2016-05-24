@@ -1,4 +1,5 @@
-﻿using AzureUtilities.Tables;
+﻿
+using Azure.TableStorage.Utilities.Tables;
 
 namespace Azure.TableStorage.Redundancy
 {

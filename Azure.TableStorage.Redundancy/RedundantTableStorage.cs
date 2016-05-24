@@ -2,8 +2,8 @@
 using System.Collections.Generic;
 using System.ComponentModel.Composition;
 using System.Net;
-using AzureUtilities.Service_Bus;
-using AzureUtilities.Tables;
+using Azure.TableStorage.Utilities.Service_Bus;
+using Azure.TableStorage.Utilities.Tables;
 using Microsoft.WindowsAzure.Storage.Table;
 using Newtonsoft.Json;
 
